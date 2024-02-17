@@ -118,7 +118,7 @@ app.get('/pdf', async (req, res) => {
         puppeteer.use(pluginStealth()) 
 
         // Creates browser instance 
-        const browser = await puppeteer.launch({headless:"new"});
+        const browser = await puppeteer.launch({headless:"new", args: ['--no-sandbox', '--disable-setuid-sandbox'],});
 
         // Creates page instance
         const page = await browser.newPage();
@@ -233,7 +233,7 @@ app.get('/screenshot', async (req, res) => {
         puppeteer.use(pluginStealth()) 
         
         // Creates browser instance 
-        const browser = await puppeteer.launch({headless:"new"});
+        const browser = await puppeteer.launch({headless:"new", args: ['--no-sandbox', '--disable-setuid-sandbox'],});
 
         // Creates page instance
         const page = await browser.newPage();
